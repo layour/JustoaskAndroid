@@ -154,7 +154,7 @@ public class OpenSpeechService {
 				text.append(JsonParser.parseIatResult(result.getResultString()));
 				
 				String cb = args.getString(ActionProcessor.CALLBACK, "");
-				if(!Common.isEmpty(cb)){
+				if(isLast && !Common.isEmpty(cb)){
 					args.put("text", text);
 					RTHelper.execCallBack(args);
 				}
